@@ -9,16 +9,17 @@ export async function GET() {
     const manga = await Manga.findById(mangasId[random]);
     console.log("random :: random manga id :: ", manga._id);
     // return NextResponse.redirect("/manga/" + manga._id);
-    return NextResponse.redirect(
-      "https://mangachi.vercel.app/manga/" + manga._id
-    );
+    // return NextResponse.redirect(
+    //   "https://mangachi.vercel.app/manga/" + manga._id
+    // );
+    return NextResponse.redirect("/");
   } catch (err: any) {
     return NextResponse.json(
       {
         status: "unsuccess",
         message: err?.message || err._message || "Internal server error",
       },
-      { status: 500 }
-    );
-  }
+      { status: 500 }
+    );
+  }
 }
